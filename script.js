@@ -1,3 +1,9 @@
+const speedRange = document.getElementById("speedRange");
+const speedValue = document.getElementById("speedValue");
+
+speedRange.addEventListener("input", () => {
+    speedValue.textContent = speedRange.value;
+});
 const imageInput = document.getElementById("imageInput");
 const previewContainer = document.getElementById("previewContainer");
 const generateBtn = document.getElementById("generateBtn");
@@ -37,7 +43,7 @@ generateBtn.addEventListener("click", () => {
 
     uploadedImages.forEach(img => {
         gif.addFrame(img, {
-            delay: 500
+            delay: parseInt(speedRange.value)
         });
     });
 
