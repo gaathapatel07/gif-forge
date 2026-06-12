@@ -1,4 +1,4 @@
-# gif-forge
+
 # GIF Forge
 
 GIF Forge is a web application for creating animated GIFs from images and videos.
