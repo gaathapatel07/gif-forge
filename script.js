@@ -1,36 +1,17 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-}
+const imageInput = document.getElementById("imageInput");
+const previewContainer = document.getElementById("previewContainer");
 
-.container {
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
-}
+imageInput.addEventListener("change", function () {
+    previewContainer.innerHTML = "";
 
-h1 {
-    color: #333;
-}
+    const files = this.files;
 
-#imageInput {
-    margin: 20px 0;
-}
+    for (let file of files) {
+        const img = document.createElement("img");
 
-#previewContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-}
+        img.src = URL.createObjectURL(file);
+        img.classList.add("preview-image");
 
-.preview-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-}
+        previewContainer.appendChild(img);
+    }
+});
